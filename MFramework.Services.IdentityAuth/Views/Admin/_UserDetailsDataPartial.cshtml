@@ -1,0 +1,27 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.UserDetailsViewModel
+
+<div class="col-md-6">
+    <div class="text-center">
+        <h5>Security Groups</h5>
+        <hr />
+    </div>
+    <div class="h-300-overflow-y-auto thin-scrollbar" id="section_userdetailsecuritygroups">
+        @*Ajax Loading : _UserSecurityGroupsPartial*@
+        @Html.Partial("_UserSecurityGroupsPartial", Model)
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="text-center">
+        <h5>Application Roles</h5>
+        <hr />
+    </div>
+    <div class="h-300-overflow-y-auto thin-scrollbar" id="section_userdetailssecuritygrouproles">
+        @*Ajax Loading : _UserSecurityGroupRolesPartial*@
+        @Html.Partial("_UserSecurityGroupRolesPartial", Model.UserRoles)
+    </div>
+</div>
+
+<script>
+    $("#section_userdetailsecuritygroups").filterable("h6", "a.list-group-item", "filter");
+    $("#section_userdetailssecuritygrouproles").filterable("h6", "li.list-group-item", "filter");
+</script>

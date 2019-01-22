@@ -9,9 +9,9 @@
 <div>
     <h4>Change your account settings</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
-        <dd>
+    <dl class="row">
+        <dt class="col-md-2">Password:</dt>
+        <dd class="col-md-10">
             [
             @if (Model.HasPassword)
             {
@@ -23,8 +23,8 @@
             }
             ]
         </dd>
-        <dt>External Logins:</dt>
-        <dd>
+        <dt class="col-md-2">External Logins:</dt>
+        <dd class="col-md-10">
             @Model.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
         </dd>
@@ -56,8 +56,8 @@
                 }
             </dd>
         *@
-        <dt>Two-Factor Authentication:</dt>
-        <dd>
+        <dt class="col-md-2">Two-Factor Authentication:</dt>
+        <dd class="col-md-10">
             <p>
                 There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication.

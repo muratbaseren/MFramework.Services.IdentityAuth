@@ -1,0 +1,55 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.UserDetailsViewModel
+
+@if (Model != null && Model.UserSecurityGroups != null && Model.UserSecurityGroups.Count > 0)
+{
+    <div class="list-group pr-1">
+        @foreach (var item in Model.UserSecurityGroups)
+        {
+            @Ajax.RawActionLink(CreateOwnListGroupItem(item).ToHtmlString(), "DetailsUserSecurityGroupRoles", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "section_userdetailssecuritygrouproles" }, new { @class = "list-group-item list-group-item-action mb-1" })
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>User hasn't any security group.</small></p>
+}
+
+@if (Model != null && Model.SecurityGroups != null && Model.SecurityGroups.Count > 0)
+{
+    <div class="list-group pr-1">
+        @foreach (var item in Model.SecurityGroups.Except(Model.UserSecurityGroups))
+        {
+            @Ajax.RawActionLink(CreateOtherListGroupItem(item).ToHtmlString(), "DetailsUserSecurityGroupRoles", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "section_userdetailssecuritygrouproles" }, new { @class = "list-group-item list-group-item-action mb-1" })
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>No another security group.</small></p>
+}
+
+@helper CreateOwnListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationSecurityGroup securityGroup)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1 text-success"><i class="fa fa-check"></i> @securityGroup.Name</h6>
+        <small>
+            <button class="btn btn-light btn-sm" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_userdetailsdata", Url.Action("DetailsRemoveUserSecurityGroup", "Admin", new { userId = Model.User.Id, securityGroupId = securityGroup.Id }))">
+                <i class="fa fa-minus text-danger"></i>
+            </button>
+        </small>
+    </div>
+    <small>@securityGroup.Description</small>
+}
+
+@helper CreateOtherListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationSecurityGroup securityGroup)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">@securityGroup.Name</h6>
+        <small>
+            <button class="btn btn-light btn-sm" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_userdetailsdata", Url.Action("DetailsAddSecurityGroupToUser", "Admin", new { userId = Model.User.Id, securityGroupId = securityGroup.Id }))">
+                <i class="fa fa-plus text-success"></i>
+            </button>
+        </small>
+    </div>
+    <small>@securityGroup.Description</small>
+}

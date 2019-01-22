@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MFramework.Services.IdentityAuth</id>
+    <version>$version$</version>
+    <authors>Kadir Murat Başeren</authors>
+    <title>MFramework.Services.IdentityAuth</title>
+    <owners>Kadir Murat Başeren</owners>
+    <projectUrl>https://github.com/muratbaseren/MFramework.Services.IdentityAuth</projectUrl>
+    <iconUrl>https://github.com/muratbaseren/MFramework.Services.IdentityAuth/blob/master/assets/icon.png?raw=true</iconUrl>
+    <description>Microsoft Identity based authentication and authorization service for .NET MVC Apps.</description>
+    <summary>Microsoft Identity based authentication and authorization service for .NET MVC Apps. All pages have been converted bootstrap 4 and use full ajax helpers.</summary>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>mvc,microsoft identity,authentication,authorization,role,claim,security group,bootstrap 4,full ajax</tags>
+    <copyright>Copyright Kadir Murat Başeren</copyright>
+    <dependencies>
+      <group>
+        <dependency id="Antlr" version="3.5.0.2"  />
+        <dependency id="bootstrap" version="4.2.1"  />
+        <dependency id="EntityFramework" version="6.2.0"  />
+        <dependency id="FakeData" version="1.0.0"  />
+        <dependency id="FontAwesome" version="4.7.0"  />
+        <dependency id="jQuery" version="3.3.1"  />
+        <dependency id="jQuery.Validation" version="1.17.0"  />
+        <dependency id="Microsoft.AspNet.Identity.EntityFramework" version="2.2.1"  />
+        <dependency id="Microsoft.AspNet.Identity.Owin" version="2.2.1"  />
+        <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.3"  />
+        <dependency id="Microsoft.jQuery.Unobtrusive.Ajax" version="3.2.6"  />
+        <dependency id="Microsoft.jQuery.Unobtrusive.Validation" version="3.2.4"  />
+        <dependency id="Microsoft.Owin.Host.SystemWeb" version="4.0.0"  />
+        <dependency id="Microsoft.Owin.Security.Facebook" version="4.0.0"  />
+        <dependency id="Microsoft.Owin.Security.Google" version="4.0.0"  />
+        <dependency id="Microsoft.Owin.Security.MicrosoftAccount" version="4.0.0"  />
+        <dependency id="Microsoft.Owin.Security.Twitter" version="4.0.0"  />
+        <dependency id="System.ValueTuple" version="4.5.0"  />
+        <dependency id="WebGrease" version="1.6.0"  />
+        <dependency id="MFramework.Services.Config" version="1.0.3"  />
+        <dependency id="MFramework.Services.HtmlHelpers" version="1.0.9"  />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="App_Start\**\*.*" target="content\App_Start" />
+    <file src="Content\site.css" target="content\Content" />
+    <file src="Controllers\AccountController.cs" target="content\Controllers" />
+    <file src="Controllers\AdminController.cs" target="content\Controllers" />
+    <file src="Controllers\ManageController.cs" target="content\Controllers" />
+    <file src="Migrations\**\*.*" target="content\Migrations" />
+    <file src="Services\IdentityAuth\**\*.*" target="content\Services\IdentityAuth" />
+    <file src="Views\Account\**\*.*" target="content\Views\Account" />
+    <file src="Views\Admin\**\*.*" target="content\Views\Admin" />
+    <file src="Views\Manage\**\*.*" target="content\Views\Manage" />
+    <file src="Views\Shared\_Layout.cshtml" target="content\Views\Shared" />
+    <file src="Views\Shared\_LoginPartial.cshtml" target="content\Views\Shared" />
+    <file src="web.config.install.xdt" target="content\web.config.install.xdt" />
+    <file src="web.config.uninstall.xdt" target="content\web.config.uninstall.xdt" />
+  </files>
+</package>
+

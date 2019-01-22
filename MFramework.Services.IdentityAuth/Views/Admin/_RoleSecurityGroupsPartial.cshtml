@@ -1,0 +1,18 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.RoleDetailsViewModel
+
+@if (Model != null && Model.RoleSecurityGroups != null && Model.RoleSecurityGroups.Count > 0)
+{
+    <ul class="list-group pr-1">
+        @foreach (var item in Model.RoleSecurityGroups)
+        {
+            <li class="list-group-item mb-1">
+                <h6>@item.Name</h6>
+                <div><small class="mb-0">@item.Description</small></div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-center"><small>There is no any security group that has @Model.Role.Title role.</small></p>
+}

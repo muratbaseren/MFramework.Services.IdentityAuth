@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MFramework.Services.IdentityAuth.Models.ApplicationSecurityGroup>
+
+<div class="table-responsive">
+    <table class="table table-hover table-sm">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-right">
+                    @Ajax.RawActionLink("<i class='fa fa-edit'></i>", "EditSecurityGroup", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_editsecuritygroup" }, new { @class = "btn btn-warning btn-sm" })
+
+                    @Ajax.RawActionLink("<i class='fa fa-info-circle'></i>", "DetailsSecurityGroup", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_detailssecuritygroup" }, new { @class = "btn btn-info btn-sm" })
+
+                    @Ajax.RawActionLink("<i class='fa fa-trash'></i>", "DeleteSecurityGroup", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_deletesecuritygroup" }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

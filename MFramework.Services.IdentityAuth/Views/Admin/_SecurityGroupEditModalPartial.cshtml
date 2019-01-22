@@ -1,0 +1,33 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.SecurityGroupEditViewModel
+
+<div class="modal fade" id="modal_editsecuritygroup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Security Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_SecurityGroupEditFormPartial", Model)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="form_editsecuritygroup"><i class="fa fa-floppy-o"></i> Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#modal_editsecuritygroup").modal("show");
+    $("#modal_editsecuritygroup").on("hidden.bs.modal", function (e) {
+        $(this).parent().empty();
+    });
+
+    function editsecuritygroup_success() {
+        $('#modal_editsecuritygroup').modal('hide');
+        refresh_securitygroup_table();
+    }
+</script>

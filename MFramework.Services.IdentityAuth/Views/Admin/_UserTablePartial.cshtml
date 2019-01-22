@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MFramework.Services.IdentityAuth.Models.ApplicationUser>
+
+<table class="table table-hover table-sm text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td class="text-center">
+                @MFHtml.UseCheckRemoveIcon(item.EmailConfirmed)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td class="text-center">
+                @MFHtml.UseCheckRemoveIcon(item.PhoneNumberConfirmed)
+            </td>
+            <td class="text-center">
+                @MFHtml.UseCheckRemoveIcon(item.TwoFactorEnabled)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+            </td>
+            <td class="text-center">
+                @MFHtml.UseCheckRemoveIcon(item.LockoutEnabled)
+            </td>
+            <td class="text-right">
+                @Ajax.RawActionLink("<i class='fa fa-edit'></i>", "EditUser", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_edituser" }, new { @class = "btn btn-warning btn-sm" })
+
+                @Ajax.RawActionLink("<i class='fa fa-info-circle'></i>", "DetailsUser", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_detailsuser" }, new { @class = "btn btn-info btn-sm" })
+
+                @Ajax.RawActionLink("<i class='fa fa-trash'></i>", "DeleteUser", "Admin", new { id = item.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_deleteuser" }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>

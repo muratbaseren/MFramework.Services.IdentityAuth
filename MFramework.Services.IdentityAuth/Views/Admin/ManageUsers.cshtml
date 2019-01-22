@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Manage Users";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <p>
+            @Ajax.RawActionLink("<i class='fa fa-plus'></i> Create New", "CreateUser", "Admin", null, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_createuser" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-md-2 text-right">
+        @Ajax.RawActionLink("Refresh", "GetUserTable", "Admin", null, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, LoadingElementDuration = 300, LoadingElementId = "loading", UpdateTargetId = "table_userdata" }, new { @class = "btn btn-primary", id="btn_refreshusertable" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive" id="table_userdata">
+            @*Ajax Loading : _UserTablePartial*@
+        </div>
+    </div>
+</div>
+
+<div id="modalsection_createuser"></div>
+<div id="modalsection_edituser"></div>
+<div id="modalsection_detailsuser"></div>
+<div id="modalsection_deleteuser"></div>
+
+@section scripts{
+<script>
+    function refresh_user_table() {
+        $("#btn_refreshusertable").click();
+    }
+
+    $(function () {
+        refresh_user_table();
+    });
+    </script>
+}

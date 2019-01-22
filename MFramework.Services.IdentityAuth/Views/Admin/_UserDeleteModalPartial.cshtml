@@ -1,0 +1,57 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.ApplicationUser
+
+<div class="modal fade" id="modal_deleteuser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Are you want to sure delete this?</p>
+                    </div>
+                    <div class="col-md-12">
+                        <dl class="row">
+                            <dt class="col-md-4">
+                                User Name :
+                            </dt>
+                            <dd class="col-md-8">
+                                @Model.UserName
+                            </dd>
+                            <dt class="col-md-4">
+                                E-Mail Address :
+                            </dt>
+                            <dd class="col-md-8">
+                                @Model.Email
+                            </dd>
+                        </dl>
+                    </div>
+                    @using (Ajax.BeginForm("DeleteUser", "Admin", new { id = Model.Id }, new AjaxOptions { HttpMethod = "POST", LoadingElementDuration = 300, LoadingElementId = "loading" }, new { id= "form_deleteuser" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger" form="form_deleteuser"><i class="fa fa-trash-o"></i> Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#modal_deleteuser").modal("show");
+    $("#modal_deleteuser").on("hidden.bs.modal", function (e) {
+        $(this).parent().empty();
+    });
+
+    function deleteuser_success() {
+        $('#modal_deleteuser').modal('hide');
+        refresh_user_table();
+    }
+</script>

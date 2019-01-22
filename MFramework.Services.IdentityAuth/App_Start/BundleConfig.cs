@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace MFramework.Services.IdentityAuth
 {
@@ -22,8 +21,13 @@ namespace MFramework.Services.IdentityAuth
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/mframework").Include(
+                      "~/Scripts/mframework-*"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/mframework-*",
                       "~/Content/site.css"));
         }
     }

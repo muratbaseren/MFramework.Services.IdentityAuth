@@ -1,0 +1,34 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.RoleEditViewModel
+
+@using (Ajax.BeginForm("EditRole", "Admin", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "form_editrole", LoadingElementDuration = 300, LoadingElementId = "loading" }, new { id = "form_editrole" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.RoleId)
+
+    <div class="form-group row">
+        <div class="offset-md-2 col-md-8">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.DisplayFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Title, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Description, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        </div>
+    </div>
+}

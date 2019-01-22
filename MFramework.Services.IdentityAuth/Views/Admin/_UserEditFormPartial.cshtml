@@ -1,0 +1,31 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.UserEditViewModel
+
+@using (Ajax.BeginForm("EditUser", "Admin", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "form_edituser", LoadingElementDuration = 300, LoadingElementId = "loading" }, new { id = "form_edituser" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserId)
+
+    <div class="form-group row">
+        <div class="offset-md-2 col-md-8">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="alert alert-warning">
+        <p>Into the app we use to know user using its e-mail address. So, e-mail address important to this app. You can use username for different cases but you can change some codes.</p>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+}

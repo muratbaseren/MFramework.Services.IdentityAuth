@@ -1,0 +1,40 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.UserCreateViewModel
+
+<div>
+    @using (Ajax.BeginForm("CreateUser", "Admin", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "form_createuser", LoadingElementDuration = 300, LoadingElementId = "loading" }, new { id = "form_createuser" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group row">
+            <div class="offset-md-2 col-md-8">
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Username, new { @class = "col-md-4 col-form-label font-weight-bold" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 col-form-label font-weight-bold" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-4 col-form-label font-weight-bold" })
+            <div class="col-md-8">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 col-form-label font-weight-bold" })
+            <div class="col-md-8">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+    }
+</div>

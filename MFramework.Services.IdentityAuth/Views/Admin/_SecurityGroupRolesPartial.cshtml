@@ -1,0 +1,59 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.SecurityGroupDetailsViewModel
+
+@if (Model != null && Model.Roles != null && Model.Roles.Count > 0)
+{
+    <div class="list-group">
+        @foreach (var item in Model.Roles)
+        {
+            <div class="list-group-item m-1">
+                @CreateOwnListGroupItem(item)
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>Security group hasn't any role.</small></p>
+}
+
+@if (Model != null && Model.ExceptRoles != null && Model.ExceptRoles.Count > 0)
+{
+    <div class="list-group">
+        @foreach (var item in Model.ExceptRoles)
+        {
+            <div class="list-group-item m-1">
+                @CreateOtherListGroupItem(item)
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>There is no another role.</small></p>
+}
+
+@helper CreateOwnListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationRole role)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1 text-success"><i class="fa fa-check text-success"></i> @role.Title</h6>
+        <small>
+            <button class="btn btn-light btn-sm" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_securitygroupdetailroles", Url.Action("DetailsRemoveRoleFromSecurityGroup", "Admin", new { securityGroupId = Model.SecurityGroup.Id, roleId = role.Id }))">
+                <i class="fa fa-minus text-danger"></i>
+            </button>
+        </small>
+    </div>
+    <small>@role.Description</small>
+}
+
+@helper CreateOtherListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationRole role)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">@role.Title</h6>
+        <small>
+            <button class="btn btn-light btn-sm text-success" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_securitygroupdetailroles", Url.Action("DetailsAddRoleToSecurityGroup", "Admin", new { securityGroupId = Model.SecurityGroup.Id, roleId = role.Id }))">
+                <i class="fa fa-plus"></i>
+            </button>
+        </small>
+    </div>
+    <small>@role.Description</small>
+}

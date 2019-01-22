@@ -1,0 +1,11 @@
+﻿body {
+    font-size: 0.9em;
+}
+
+.body-content {
+}
+
+.h-300-overflow-y-auto {
+    height: 300px;
+    overflow-y: auto;
+}

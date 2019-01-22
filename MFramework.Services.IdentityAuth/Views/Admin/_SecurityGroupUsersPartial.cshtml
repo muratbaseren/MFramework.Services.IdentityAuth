@@ -1,0 +1,59 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.SecurityGroupDetailsViewModel
+
+@if (Model != null && Model.Users != null && Model.Users.Count > 0)
+{
+    <div class="list-group">
+        @foreach (var item in Model.Users)
+        {
+            <div class="list-group-item m-1">
+                @CreateOwnListGroupItem(item)
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>Security group hasn't any user.</small></p>
+}
+
+@if (Model != null && Model.ExceptUsers != null && Model.ExceptUsers.Count > 0)
+{
+    <div class="list-group">
+        @foreach (var item in Model.ExceptUsers)
+        {
+            <div class="list-group-item m-1">
+                @CreateOtherListGroupItem(item)
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center"><small>There is no another user.</small></p>
+}
+
+@helper CreateOwnListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationUser user)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1 text-success"><i class="fa fa-check text-success"></i> @user.UserName</h6>
+        <small>
+            <button class="btn btn-light btn-sm" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_securitygroupdetailsusers", Url.Action("DetailsRemoveUserFromSecurityGroup", "Admin", new { securityGroupId = Model.SecurityGroup.Id, userId = user.Id }))">
+                <i class="fa fa-minus text-danger"></i>
+            </button>
+        </small>
+    </div>
+    <small>@user.Email</small>
+}
+
+@helper CreateOtherListGroupItem(MFramework.Services.IdentityAuth.Models.ApplicationUser user)
+{
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">@user.UserName</h6>
+        <small>
+            <button class="btn btn-light btn-sm" type="button" onclick="@MFJQueryScript.AjaxLoad("#section_securitygroupdetailsusers", Url.Action("DetailsAddUserToSecurityGroup", "Admin", new { securityGroupId = Model.SecurityGroup.Id, userId = user.Id }))">
+                <i class="fa fa-plus text-success"></i>
+            </button>
+        </small>
+    </div>
+    <small>@user.Email</small>
+}

@@ -1,0 +1,24 @@
+﻿@model  List<MFramework.Services.IdentityAuth.Models.ApplicationRole>
+
+@if (Model != null && Model.Count > 0)
+{
+    <ul class="list-group pr-1 withfade" style="display:none;">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item mb-1">
+                <h6>@item.Title</h6>
+                <div><small class="mb-0">@item.Description</small></div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-center"><small>There is no role.</small></p>
+}
+
+<script>
+    $(function () {
+        $(".withfade").fadeIn();
+    });
+</script>

@@ -1,0 +1,41 @@
+﻿
+@model  MFramework.Services.IdentityAuth.Models.SecurityGroupDetailsViewModel
+
+<div class="modal fade" id="modal_detailssecuritygroup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Details Security Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-2">
+                    <div class="col-md-10">
+                        <div class="small"><b>Name : </b>@Model.SecurityGroup.Name</div>
+                        <div class="small"><b>Description : </b>@Model.SecurityGroup.Description</div>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        @Ajax.ActionLink("Refresh", "DetailsSecurityGroupData", "Admin", new { id = Model.SecurityGroup.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, LoadingElementDuration = 300, LoadingElementId = "loading", UpdateTargetId = "section_securitygroupdetailsdata" }, new { @class = "btn btn-primary", id = "btn_refreshsecuritygroupdetailsdata" })
+                    </div>
+                </div>
+                <div class="row" id="section_securitygroupdetailsdata">
+                    @*Ajax Loading : _SecurityGroupDetailsDataPartial*@
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#modal_detailssecuritygroup").modal("show");
+    $("#modal_detailssecuritygroup").on("hidden.bs.modal", function (e) {
+        $(this).parent().empty();
+    });
+
+    $("#btn_refreshsecuritygroupdetailsdata").click();
+</script>

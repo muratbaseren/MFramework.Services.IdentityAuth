@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Manage Security Groups";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <p>
+            @Ajax.RawActionLink("<i class='fa fa-plus'></i> Create New", "CreateSecurityGroup", "Admin", null, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalsection_createsecuritygroup" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-md-2 text-right">
+        @Ajax.ActionLink("Refresh", "GetSecurityGroupTable", "Admin", null, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, LoadingElementDuration = 300, LoadingElementId = "loading", UpdateTargetId = "table_securitygroupdata" }, new { @class = "btn btn-primary", id = "btn_refreshsecuritygrouptable" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive" id="table_securitygroupdata">
+            @*Ajax Loading : _SecurityGroupTablePartial*@
+        </div>
+    </div>
+</div>
+
+<div id="modalsection_createsecuritygroup"></div>
+<div id="modalsection_editsecuritygroup"></div>
+<div id="modalsection_detailssecuritygroup"></div>
+<div id="modalsection_deletesecuritygroup"></div>
+
+@section scripts{
+    <script>
+        function refresh_securitygroup_table() {
+            $("#btn_refreshsecuritygrouptable").click();
+        }
+
+        $(function () {
+            refresh_securitygroup_table();
+        });
+    </script>
+}

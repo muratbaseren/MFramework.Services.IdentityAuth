@@ -1,0 +1,27 @@
+﻿@model  MFramework.Services.IdentityAuth.Models.SecurityGroupEditViewModel
+
+@using (Ajax.BeginForm("EditSecurityGroup", "Admin", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "form_editsecuritygroup", LoadingElementDuration = 300, LoadingElementId = "loading" }, new { id = "form_editsecuritygroup" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SecurityGroupId)
+
+    <div class="form-group row">
+        <div class="offset-md-2 col-md-8">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Description, new { @class = "col-md-4 col-form-label font-weight-bold" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        </div>
+    </div>
+}

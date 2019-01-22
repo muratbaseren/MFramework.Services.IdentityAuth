@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <connectionStrings xdt:Transform="InsertIfMissing">
+    
+    <add name="DevelopmentConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\$rootnamespace$_DevDB.mdf;Initial Catalog=$rootnamespace$_DevDB;Integrated Security=True;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />
+
+    <add name="ProductionConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\$rootnamespace$_ProdDB.mdf;Initial Catalog=$rootnamespace$_ProdDB;Integrated Security=True;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />
+    
+  </connectionStrings>
+  <system.web>
+    <globalization culture="tr-TR" uiCulture="tr-TR" xdt:Transform="InsertIfMissing"/>
+  </system.web>
+</configuration>

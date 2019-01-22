@@ -1,0 +1,4 @@
+﻿@helper AjaxLoad(string target = "#abc", string url = "/user/refresh")
+{
+    @:$('@target').load('@url');
+}

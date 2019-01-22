@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Manage Roles";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-12 text-right">
+        @Ajax.ActionLink("Refresh", "GetRoleTable", "Admin", null, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, LoadingElementDuration = 300, LoadingElementId = "loading", UpdateTargetId = "table_roledata" }, new { @class = "btn btn-primary", id = "btn_refreshroletable" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive" id="table_roledata">
+        </div>
+    </div>
+</div>
+
+<div id="modalsection_editrole"></div>
+<div id="modalsection_detailsrole"></div>
+
+@section scripts{
+    <script>
+        function refresh_role_table() {
+            $("#btn_refreshroletable").click();
+        }
+
+        $(function () {
+            refresh_role_table();
+        });
+    </script>
+}
