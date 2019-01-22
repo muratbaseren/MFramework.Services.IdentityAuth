@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(MFramework.Services.IdentityAuth.Startup))]
-namespace MFramework.Services.IdentityAuth
+[assembly: OwinStartup(typeof(MFramework_Services_IdentityAuth.Startup))]
+namespace MFramework_Services_IdentityAuth
 {
     public partial class Startup
     {

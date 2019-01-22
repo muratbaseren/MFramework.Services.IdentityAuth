@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MFramework.Services.IdentityAuth
+namespace MFramework_Services_IdentityAuth
 {
     public class RouteConfig
     {

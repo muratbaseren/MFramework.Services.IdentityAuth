@@ -6,8 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using MFramework.Services.IdentityAuth.Models;
+using MFramework.Services.IdentityAuth;
 
-namespace MFramework.Services.IdentityAuth
+namespace MFramework_Services_IdentityAuth
 {
     public partial class Startup
     {

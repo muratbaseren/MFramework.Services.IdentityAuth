@@ -1,17 +1,16 @@
-﻿using MFramework.Services.IdentityAuth.Constants;
+﻿using MFramework.Services.IdentityAuth;
+using MFramework.Services.IdentityAuth.Constants;
+using MFramework.Services.IdentityAuth.Controllers;
 using MFramework.Services.IdentityAuth.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
-namespace MFramework.Services.IdentityAuth.Controllers
+namespace MFramework_Services_IdentityAuth.Controllers
 {
     public class AdminController : IdentityBaseController
     {

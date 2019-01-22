@@ -1,4 +1,4 @@
-namespace MFramework.Services.IdentityAuth.Migrations
+namespace MFramework_Services_IdentityAuth.Migrations
 {
     using System.Data.Entity.Migrations;
 

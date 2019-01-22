@@ -1,5 +1,6 @@
-namespace MFramework.Services.IdentityAuth.Migrations
+namespace MFramework_Services_IdentityAuth.Migrations
 {
+    using MFramework.Services.IdentityAuth;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<IdentityContext>

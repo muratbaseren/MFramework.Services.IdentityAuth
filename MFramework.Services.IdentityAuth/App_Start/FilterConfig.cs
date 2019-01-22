@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace MFramework.Services.IdentityAuth
+namespace MFramework_Services_IdentityAuth
 {
     public class FilterConfig
     {

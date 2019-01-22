@@ -1,16 +1,15 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using MFramework.Services.IdentityAuth;
+using MFramework.Services.IdentityAuth.Controllers;
+using MFramework.Services.IdentityAuth.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using MFramework.Services.IdentityAuth.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
-namespace MFramework.Services.IdentityAuth.Controllers
+namespace MFramework_Services_IdentityAuth.Controllers
 {
     [Authorize]
     public class AccountController : IdentityBaseController
