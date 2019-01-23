@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="ApplyIdentityDefaultsIsEnabled" value="true" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
+  </appSettings>
   <connectionStrings xdt:Transform="InsertIfMissing">
     
     <add name="DevelopmentConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\$rootnamespace$_DevDB.mdf;Initial Catalog=$rootnamespace$_DevDB;Integrated Security=True;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />
