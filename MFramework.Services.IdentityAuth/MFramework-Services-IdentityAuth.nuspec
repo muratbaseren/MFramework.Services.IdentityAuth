@@ -47,7 +47,7 @@
     <file src="Services\IdentityAuth\**\*.*" target="content\Services\IdentityAuth" />
     <file src="Views\**\*.*" target="content\Views" />
     <file src="Views\*.*" target="content\Views" />
-    <file src="*.*" target="content\" exclude="packages.config*;*.csproj;web.config*;*.asax" />
+    <file src="*.*" target="content\" exclude="packages.config*;web.config*;*.asax;*.csproj" />
     <file src="web.config.install.xdt" target="content\web.config.install.xdt" />
     <file src="web.config.uninstall.xdt" target="content\web.config.uninstall.xdt" />
   </files>
