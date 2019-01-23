@@ -53,11 +53,10 @@
     <file src="Views\Shared\**\*.*" target="content\Views\Shared" />
     <file src="Views\_ViewStart.cshtml" target="content\Views" />
     <file src="Views\Web.config" target="content\Views" />
-    <file src="bundleconfig.json" target="content" />
-    <file src="Startup.cs" target="content" />
-    <file src="favicon.cs" target="content" />
-    <file src="global.asax" target="content" />
-    <file src="global.asax.cs" target="content" />
+    <file src="bundleconfig.json" target="content\" />
+    <file src="Startup.cs" target="content\" />
+    <file src="favicon.ico" target="content\" />
+    <file src="global.asax.cs" target="content\" />
     <file src="web.config.install.xdt" target="content\web.config.install.xdt" />
     <file src="web.config.uninstall.xdt" target="content\web.config.uninstall.xdt" />
   </files>
