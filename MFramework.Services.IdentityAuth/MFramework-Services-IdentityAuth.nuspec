@@ -42,10 +42,10 @@
   <files>
     <file src="App_Start\**\*.*" target="content\App_Start" />
     <file src="Content\site.css" target="content\Content" />
-    <file src="Controllers\**\*.*" target="content\Controllers" exclude="**\ExpenseController.*" />
+    <file src="Controllers\**\*.*" target="content\Controllers" />
     <file src="Migrations\**\configuration.*" target="content\Migrations" />
     <file src="Services\IdentityAuth\**\*.*" target="content\Services\IdentityAuth" />
-    <file src="Views\**\*.*" target="content\Views" exclude="Expense\;Expense\*.*" />
+    <file src="Views\**\*.*" target="content\Views" />
     <file src="Views\*.*" target="content\Views" />
     <file src="*.*" target="content\" exclude="packages.config*;*.csproj;web.config*;*.asax" />
     <file src="web.config.install.xdt" target="content\web.config.install.xdt" />
