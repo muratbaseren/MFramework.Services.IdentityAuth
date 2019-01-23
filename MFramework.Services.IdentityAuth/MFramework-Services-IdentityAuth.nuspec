@@ -42,14 +42,14 @@
   <files>
     <file src="App_Start\**\*.*" target="content\App_Start" />
     <file src="Content\site.css" target="content\Content" />
-    <file src="Controllers\**\*.*" target="content\Controllers" exclude="ExpenseController.*" />
+    <file src="Controllers\**\*.*" target="content\Controllers" exclude="**\ExpenseController.*" />
     <!--<file src="Controllers\HomeController.cs.pp" target="content\Controllers" />
     <file src="Controllers\AccountController.cs.pp" target="content\Controllers" />
     <file src="Controllers\AdminController.cs.pp" target="content\Controllers" />
     <file src="Controllers\ManageController.cs.pp" target="content\Controllers" />-->
     <file src="Migrations\**\configuration.*" target="content\Migrations" />
     <file src="Services\IdentityAuth\**\*.*" target="content\Services\IdentityAuth" />
-    <file src="Views\**\*.*" target="content\Views" exclude="Expense" />
+    <file src="Views\**\*.*" target="content\Views" exclude="**\Expense" />
     <!--<file src="Views\Account\**\*.*" target="content\Views\Account" />
     <file src="Views\Admin\**\*.*" target="content\Views\Admin" />
     <file src="Views\Home\**\*.*" target="content\Views\Home" />
@@ -58,7 +58,7 @@
     <file src="Views\*.*" target="content\Views" />
     <!--<file src="Views\_ViewStart.cshtml.pp" target="content\Views" />
     <file src="Views\Web.config.pp" target="content\Views" />-->
-    <file src="*.*" target="content\" exclude="packages.config*" />
+    <file src="*.*" target="content\" exclude="packages.config*;*.csproj;web.config*" />
     <!--<file src="bundleconfig.json" target="content\" />
     <file src="Startup.cs.pp" target="content\" />
     <file src="favicon.ico" target="content\" />
