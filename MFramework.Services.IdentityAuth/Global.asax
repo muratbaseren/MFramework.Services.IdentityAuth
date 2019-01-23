@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="MFramework.Services.IdentityAuth.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="MFramework_Services_IdentityAuth.MvcApplication" Language="C#" %>
