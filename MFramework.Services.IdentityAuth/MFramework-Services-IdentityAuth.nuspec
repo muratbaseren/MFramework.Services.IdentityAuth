@@ -16,7 +16,7 @@
     <dependencies>
       <group>
         <dependency id="Antlr" version="3.5.0.2"  />
-        <dependency id="bootstrap" version="4.2.1"  />
+        <dependency id="bootstrap" version="4.3.1"  />
         <dependency id="EntityFramework" version="6.2.0"  />
         <dependency id="FakeData" version="1.0.0"  />
         <dependency id="FontAwesome" version="4.7.0"  />
